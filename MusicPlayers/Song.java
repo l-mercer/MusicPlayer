@@ -1,4 +1,4 @@
-package main.java.com.example.com2024.lm;
+package MusicPlayers;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -10,5 +10,7 @@ import java.util.Scanner;
  * Version 0.0.0.1
  */
 
-public class Main {
+
+public class Song {
+    
 }
