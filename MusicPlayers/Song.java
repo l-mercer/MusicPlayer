@@ -12,5 +12,15 @@ import java.util.Scanner;
 
 
 public class Song {
+    private String ArtistName;
+    private String SongTitle;
+    private int PlayBack;
+
+    public Song(){};
     
+    public Song(String ArtistName, String SongTitle, int PlayBack){
+        this.ArtistName = ArtistName;
+        this.PlayBack = PlayBack;
+        this.PlayBack = PlayBack;
+    }
 }
