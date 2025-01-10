@@ -16,13 +16,12 @@ public class MusicLibrary {
     private Synthesizer synth;
     private MidiChannel channel;
 
-    // Constructor
     public MusicLibrary() {
         songList = new ArrayList<>();
         recentlyPlayed = new LinkedList<>();
         playlists = new ArrayList<>();
         
-        // Initialize MIDI
+        // creates the MIDI
         try {
             synth = MidiSystem.getSynthesizer();
             synth.open();
@@ -33,7 +32,7 @@ public class MusicLibrary {
         }
     }
 
-    // Basic CRUD Operations
+    // basic method for addings a song 
     public void addSong(Song song) {
         songList.add(song);
         System.out.println("Song '" + song.getSongTitle() + "' added successfully.");
@@ -50,7 +49,7 @@ public class MusicLibrary {
         System.out.println("Song '" + title + "' not found.");
     }
 
-    // Display Methods
+    // method for displaying text depending on user input
     public void displayAllSongs() {
         if (songList.isEmpty()) {
             System.out.println("No songs in the library.");
@@ -81,7 +80,7 @@ public class MusicLibrary {
         }
     }
 
-    // Search Function
+    // function for searching songs
     public void searchSongs(String keyword) {
         boolean found = false;
         System.out.println("\nSearch results for: '" + keyword + "'");
@@ -98,7 +97,7 @@ public class MusicLibrary {
         }
     }
 
-    // Sorting Methods
+    //  Methods for sorting 
     public void sortByPlayCount() {
         Collections.sort(songList, (s1, s2) -> s2.getPlayCount() - s1.getPlayCount());
         System.out.println("\nSongs sorted by play count (highest to lowest):");
@@ -140,15 +139,15 @@ public class MusicLibrary {
                 try {
                     System.out.println("Now playing: " + song.toString());
                     
-                    // Play a melody
-                    int[] notes = {60, 64, 67, 72, 67, 64, 60}; // Simple melody
-                    int[] durations = {500, 500, 500, 1000, 500, 500, 1000}; // Note durations in ms
+                    // Plays a melody
+                    int[] notes = {60, 64, 67, 72, 67, 64, 60}; 
+                    int[] durations = {500, 500, 500, 1000, 500, 500, 1000}; 
                     
                     for (int i = 0; i < notes.length; i++) {
-                        channel.noteOn(notes[i], 100);  // Note on with velocity 100
-                        Thread.sleep(durations[i]);     // Hold note
-                        channel.noteOff(notes[i]);      // Note off
-                        Thread.sleep(50);               // Small gap between notes
+                        channel.noteOn(notes[i], 100);  
+                        Thread.sleep(durations[i]);     
+                        channel.noteOff(notes[i]);      
+                        Thread.sleep(50);               
                     }
                     
                     // Update play count and recently played
@@ -185,7 +184,7 @@ public class MusicLibrary {
         recentlyPlayed.forEach(System.out::println);
     }
 
-    // Playlist Management
+    // Playlist Managemen
     public void createPlaylist(String name) {
         playlists.add(new Playlist(name));
         System.out.println("Playlist '" + name + "' created successfully.");

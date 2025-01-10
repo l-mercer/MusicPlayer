@@ -7,13 +7,11 @@ public class MusicApp {
     private MusicLibrary library;
     private Scanner scanner;
 
-    // Constructor
     public MusicApp() {
         library = new MusicLibrary();
         scanner = new Scanner(System.in);
     }
 
-    // Start the application
     public void start() {
         loadSampleData();
         boolean running = true;
@@ -26,7 +24,7 @@ public class MusicApp {
         scanner.close();
     }
 
-    // Display the main menu
+    // Main menu
     private void displayMenu() {
         System.out.println("\n=== Music Library System ===");
         System.out.println("1.  View All Songs");
@@ -46,11 +44,11 @@ public class MusicApp {
         System.out.print("Enter your choice (1-13): ");
     }
 
-    // Handle user input and menu choices
+    // handles the input from the user
     private boolean handleUserChoice() {
         try {
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Clear buffer
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
@@ -97,12 +95,12 @@ public class MusicApp {
             }
         } catch (InputMismatchException e) {
             System.out.println("\nError: Please enter a valid number!");
-            scanner.nextLine(); // Clear the invalid input
+            scanner.nextLine(); // Clears if a user enters a invalid input
         }
         return true;
     }
 
-    // Method to add a new song
+    // for adding a new song
     private void addNewSong() {
         try {
             System.out.println("\n=== Add New Song ===");
@@ -114,7 +112,7 @@ public class MusicApp {
 
             System.out.print("Enter play count: ");
             int plays = scanner.nextInt();
-            scanner.nextLine(); // Clear buffer
+            scanner.nextLine(); 
 
             System.out.print("Enter genre (or press enter to skip): ");
             String genre = scanner.nextLine().trim();
@@ -131,11 +129,11 @@ public class MusicApp {
 
         } catch (InputMismatchException e) {
             System.out.println("Error: Play count must be a valid number!");
-            scanner.nextLine(); // Clear the invalid input
+            scanner.nextLine(); // clears a users invalid input
         }
     }
 
-    // Method to remove a song
+    // used for removing a song
     private void removeSong() {
         System.out.println("\n=== Remove Song ===");
         System.out.print("Enter the title of the song to remove: ");
@@ -148,13 +146,13 @@ public class MusicApp {
         }
     }
 
-    // Method to display songs by play count
+    // used to display song count
     private void displaySongsByPlayCount() {
         try {
             System.out.println("\n=== View Songs by Play Count ===");
             System.out.print("Enter minimum play count: ");
             int minPlays = scanner.nextInt();
-            scanner.nextLine(); // Clear buffer
+            scanner.nextLine(); 
 
             if (minPlays < 0) {
                 System.out.println("Error: Play count cannot be negative!");
@@ -169,7 +167,7 @@ public class MusicApp {
         }
     }
 
-    // Method to search songs
+    // used to search for songs 
     private void searchSongs() {
         System.out.println("\n=== Search Songs ===");
         System.out.print("Enter search term: ");
@@ -182,7 +180,7 @@ public class MusicApp {
         }
     }
 
-    // Method to handle sort menu
+    // is a sort method for when you search for a song
     private void handleSortMenu() {
         System.out.println("\n=== Sort Menu ===");
         System.out.println("1. Sort by Play Count");
@@ -213,7 +211,7 @@ public class MusicApp {
         }
     }
 
-    // Method to handle genre menu
+    // creates the genre menu
     private void handleGenreMenu() {
         System.out.println("\n=== Genre Menu ===");
         System.out.println("1. View songs by genre");
@@ -240,7 +238,7 @@ public class MusicApp {
         }
     }
 
-    // Method to handle playlist menu
+    // mwthod for creating the playlist menu
     private void handlePlaylistMenu() {
         System.out.println("\n=== Playlist Menu ===");
         System.out.println("1. Create new playlist");
@@ -281,7 +279,7 @@ public class MusicApp {
         }
     }
 
-    // Method to play a song
+    // create the menu for the playlist 
     private void playSong() {
         System.out.println("\n=== Play Song ===");
         System.out.print("Enter song title to play: ");
@@ -294,7 +292,7 @@ public class MusicApp {
         }
     }
 
-    // Method to rate a song
+    // allows you to rate a song
     private void rateSong() {
         System.out.println("\n=== Rate Song ===");
         System.out.print("Enter song title: ");
@@ -329,7 +327,7 @@ public class MusicApp {
         }
     }
 
-    // Method to handle file menu
+    // handles the fire menu for allowing importanting and exporting songs
     private void handleFileMenu() {
         System.out.println("\n=== File Menu ===");
         System.out.println("1. Export library");
@@ -364,7 +362,7 @@ public class MusicApp {
         }
     }
 
-    // Load sample data
+    // Loads song sample data
     private void loadSampleData() {
         library.addSong(new Song("Drake", "Rich Flex", 1500000, "Hip Hop"));
         library.addSong(new Song("Arctic Monkeys", "R U Mine?", 2500000, "Rock"));
@@ -378,7 +376,7 @@ public class MusicApp {
         library.addSong(new Song("The Kid LAROI", "Stay", 1800000, "Pop"));
     }
 
-    // Main method
+    // main method
     public static void main(String[] args) {
         MusicApp app = new MusicApp();
         app.start();

@@ -18,7 +18,6 @@ import java.util.Scanner;
      private double rating;
      private int numberOfRatings;
      
-     // Default constructor
      public Song() {
          this.rating = 0.0;
          this.numberOfRatings = 0;
